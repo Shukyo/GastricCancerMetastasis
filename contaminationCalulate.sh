@@ -7,12 +7,17 @@ fi
 
 if [ ! $1 ]||[ ! $2 ];then
    echo "Usage:"
-   echo $0 "inputfile output-Prefix"
+   echo "     "$0 "inputfile output-Prefix"
+   echo
    exit 0
 fi
 
 gatk GetPileupSummaries \
               -I $1 \
               -L data/interval.list \
-              -V /database/GATK/hg19/af-only-exac.noTCGA.common.hg19.vcf.gz  \
+              -V data/af-only-exac.noTCGA.common.hg19.vcf.gz  \
               -O $2.getpileupsummaries.table
+
+gatk CalculateContamination \
+             -I $2.getpileupsummaries.table
+             -O $2.calculatecontamination.table
