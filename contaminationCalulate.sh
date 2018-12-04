@@ -8,6 +8,7 @@ fi
 if [ ! $1 ]||[ ! $2 ];then
    echo "Usage:"
    echo $0 "inputfile output-Prefix"
+   exit 0
 fi
 
 gatk GetPileupSummaries \
