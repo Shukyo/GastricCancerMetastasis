@@ -19,5 +19,5 @@ gatk GetPileupSummaries \
               -O $2.getpileupsummaries.table
 
 gatk CalculateContamination \
-             -I $2.getpileupsummaries.table
+             -I $2.getpileupsummaries.table \
              -O $2.calculatecontamination.table
