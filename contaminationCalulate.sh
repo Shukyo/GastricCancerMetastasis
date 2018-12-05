@@ -7,10 +7,12 @@ fi
 
 if [ ! $1 ]||[ ! $2 ];then
    echo "Usage:"
-   echo "     "$0 "inputfile output-Prefix"
+   echo "     "$0 "input.bam output-Prefix"
    echo
    exit 0
 fi
+
+mkdir contamination || exit 1
 
 gatk GetPileupSummaries \
               -I $1 \
